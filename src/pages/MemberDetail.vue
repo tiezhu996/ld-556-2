@@ -44,7 +44,7 @@ const photo = usePhoto()
 const legacy = useLegacyStore()
 const member = computed(() => getById(String(route.params.id)))
 const storyItems = computed(() => story.byMember(String(route.params.id)).map((item) => ({ id: item.id, title: item.title, description: item.content, date: item.date })))
-const galleryItems = computed(() => photo.byMember(String(route.params.id)).map((item) => ({ id: item.id, url: item.restoredUrl || item.imageUrl, caption: item.caption, year: item.year, meta: item.location })))
+const galleryItems = computed(() => photo.byMember(String(route.params.id)).map((item) => ({ id: item.id, url: item.restoredUrl || item.imageUrl, caption: item.caption, year: item.year, meta: item.location, peopleIds: item.people })))
 const memberPlans = computed(() => legacy.byMember(String(route.params.id)))
 
 onMounted(async () => {
